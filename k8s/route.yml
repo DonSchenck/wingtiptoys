@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: wingtiptoys
+  namespace: wingtip
+spec:
+  host: wingtiptoys-wingtip.apps-crc.testing
+  to:
+    kind: Service
+    name: wingtipserver
+    weight: 100
+  port:
+    targetPort: 80
+  wildcardPolicy: None

@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: wingtipserver
+  namespace: wingtip
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+  internalTrafficPolicy: Cluster
+  type: NodePort
+  sessionAffinity: None
+  selector:
+    special: key
+status:
+  loadBalancer: {}
